@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="style.css"/>
+
+</head>
+<body>
+    <div>Time left = <span id="timer"></span> 
+ </div>
+    <div class="quiz-wrapper">
+        <div id="questionBox" class="question">
+        Sample Question
+    </div>
+    <div class="option">
+        <ul id="ul">
+            <button type="button" id="opt1" onclick="button(this)"></button>
+            <button type="button" id="opt2" onclick="button(this)"></button>
+            <button type="button" id="opt3" onclick="button(this)"></button>
+            <button type="button" id="opt4" onclick="button(this)"></button>
+        </ul>
+    </div>
+    <div class="score">
+        <div class="next">
+            <button id="btnNext" type="button" onclick="next()">
+                Next
+            </button>
+    </div>
+    <div class="score-card">
+        SCORE: <span id="scoreCard">0</span>
+    </div>  
+</div>
+    </div>
+    <script src="Java.js"></script>
+</body>
+</html>
