@@ -1,3 +1,5 @@
+
+// Initiating the elements to perform there functions
 var nextButton = document.getElementById('btnNext');
 var quizbox = document.getElementById('questionBox')
 var opt1 = document.getElementById('opt1')
@@ -5,6 +7,7 @@ var opt2 = document.getElementById('opt2')
 var opt3 = document.getElementById('opt3')
 var opt4 = document.getElementById('opt4')
 
+// This creates an object to contain the questions
 var app={
         questions:[
             {
@@ -33,10 +36,11 @@ var app={
                 options: ['JavaScript Object Notation', 'Junior Stay On Normal', 'Jack Sparrow On Nerves', 'Jake Snakes On Now'],
                 answer:1
             }          
-           
-           
-                    ],
+            ],
+        
+       // This section is targeting the start of the first question, and generating the count of the next one.
         index:0,
+        // Here we want to input the options into the question by targeting options using innerHTML
         load:function(){
             if(this.index<=this.questions.length-1){
                 quizbox.innerHTML=this.index+1 + ". " +this.questions[this.index].q;
@@ -45,6 +49,8 @@ var app={
                 opt3.innerHTML=this.questions[this.index].options[2];
                 opt4.innerHTML=this.questions[this.index].options[3];
             }
+           
+           // Were displaying the end of the quiz for the user. As in, when you complete the last question and press next "Quiz Completed" will display
             else {
                 quizbox.innerHTML="Quiz Completed!";
                 ul.style.display="none";
