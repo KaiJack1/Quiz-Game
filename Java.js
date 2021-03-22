@@ -57,10 +57,12 @@ var app={
                 nextButton.style.display="none";
             }
         },
+        // Here we have to make sure were using the index to display the next button on the screen
         next: function(){
             this.index++;
             this.load();
         },
+        //Were creating a function so that when the user selects the right answer it will display "correct"
         check: function(ele){
             var id=ele.id.split('');
             if(id[id.length-1]==this.questions[this.index].answer){
@@ -68,43 +70,47 @@ var app={
                 ele.className="correct";
                 this.scoreCard();
             }
+            // If the user doesn't select the correct answer it will display "wrong"
             else{
                 ele.className="wrong";
             }
         },
+        //This is a way for a user to make a singular choice and not have the other options selected
         preventClick:function(){
             for(let i=0; i<ul.children.length; i++){
                 ul.children[i].style.pointerEvents="none";
             }
         },
+        //This is going to make possible for the user to make a selection in general.
         allowClick:function(){
             for(let i=0; i<ul.children.length; i++){
                 ul.children[i].style.pointerEvents="auto";
                 ul.children[i].className=''
             }
         },
+        //Allows the page to display the score for the user. Number of questions wrong and correct.
         score:0,
         scoreCard:function(){
             scoreCard.innerHTML=this.questions.length + "/" + this.score;
         }
 }
-
+//Loads the page
 window.load=app.load();
-
+//Were making the button function properly when clicked.
 function button(ele){
     app.check(ele);
     app.preventClick();
 }
-
+//Were making the next button function properly when clicked.
 function next(){
     app.next();
     app.allowClick();
 }
-
+//Setting up and displaying a timer for our page as the user does the quiz.
 document.getElementById('timer').innerHTML =
 003 + ":" + 20;
 startTimer();
-
+//This function allows the user to see a countdown timer, displaying that the user only has a certain amount to finish the quiz.
 function startTimer() {
     var presentTime = document.getElementById('timer').innerHTML;
     var timeArray = presentTime.split(/[:]+/);
@@ -117,7 +123,7 @@ function startTimer() {
     console.log(m)
     setTimeout(startTimer, 1000);
 }
-
+//Displaying the seconds, and minutes in the timer. This will actually display our counting down.
 function checkSecond(sec) {
     if (sec < 10 && sec >= 0) {sec = "0" + sec};
 
